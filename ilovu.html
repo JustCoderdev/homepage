@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="style.css" />
+
+<link rel="icon" type="image/png" href="/assets/red-icon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/assets/red-icon/favicon.svg" />
+<link rel="shortcut icon" href="/assets/red-icon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/red-icon/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="ILovU" />
+<link rel="manifest" href="/assets/red-icon/site.webmanifest" />
+
+<title> ILovU </title>
+</head>
+
+<body>
+
+<header>
+	<span> For my dear </span>
+</header>
+
+<h1> <em>I Love You</em> </h1>
+
+<nav id="container">
+	<div id="left-ball"></div>
+	<div id="right-ball"></div>
+	<div id="tail"></div>
+</nav>
+
+<footer>
+	<p> Made for you with &lt;3 </p>
+</footer>
+
+<style>
+
+#container {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 1;
+}
+
+#left-ball, #right-ball, #tail {
+	position: absolute;
+
+	width: 40%;
+	aspect-ratio: 1;
+
+	background-color: var(--tint-red);
+}
+
+#left-ball, #right-ball { top: 20%; }
+#left-ball {
+	border-radius: 50% 50% 0 50%;
+	right: 45%;
+}
+#right-ball {
+	border-radius: 50% 50% 50% 0;
+	left: 45%;
+}
+
+#tail {
+	left: 50%;
+	top: 55%;
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+
+</style>
+
+
+</html>

@@ -31,7 +31,7 @@ html {
 
 body {
 	padding: 0.5em;
-	max-width: 80ch;
+	width: 80ch;
 
 	background-color: var(--bg-primary);
 	color: var(--fg-primary);
