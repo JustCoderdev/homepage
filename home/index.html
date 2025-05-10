@@ -4,12 +4,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="style.css" />
 
-<link rel="icon" type="image/png" href="/assets/icon/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/assets/icon/favicon.svg" />
-<link rel="shortcut icon" href="/assets/icon/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png" />
+<link rel="icon" type="image/png" href="assets/icon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="assets/icon/favicon.svg" />
+<link rel="shortcut icon" href="assets/icon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icon/apple-touch-icon.png" />
 <meta name="apple-mobile-web-app-title" content="FoxBurrow" />
-<link rel="manifest" href="/assets/icon/site.webmanifest" />
+<link rel="manifest" href="assets/icon/site.webmanifest" />
 
 <title>Homepage - redirection</title>
 </head>
@@ -36,15 +36,16 @@
 
 <script defer>
 	const url = new URL(window.location.href);
-	const hostname = url.hostname;
+	const path = url.pathname.split("/")
 
-	if(hostname.includes("foxburrow.org"))
+	if(!url.search.includes("no_redirect"))
 	{
-		window.location.replace("/index-remote.html");
-	}
-	else
-	{
-		window.location.replace("/index-local.html");
+		const mode = (url.hostname.includes("foxburrow.org") ? "remote" : "local")
+		path[path.length - 1] = `index-${mode}.html`;
+
+		url.protocol = "https:";
+		url.pathname = path.join("/");
+		window.location.replace(url);
 	}
 </script>
 
