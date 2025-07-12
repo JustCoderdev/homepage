@@ -23,8 +23,8 @@
 <body>
 <header>
 	<nav>
-		<a href="index-local.html">Local</a>
-		<a href="index-remote.html">Remote</a>
+		<a href="https://192.168.7.7/home/index-local.html">Local</a>
+		<a href="https://home.foxburrow.org/home/index-remote.html">Remote</a>
 	</nav>
 
 	<span> Homepage - redirection </span>
@@ -40,7 +40,7 @@
 
 	if(!url.search.includes("no_redirect"))
 	{
-		const mode = (url.hostname.includes("foxburrow.org") ? "remote" : "local")
+		const mode = (url.hostname.endsWith("foxburrow.org") ? "remote" : "local")
 		path[path.length - 1] = `index-${mode}.html`;
 
 		url.protocol = "https:";
