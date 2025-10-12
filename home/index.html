@@ -24,8 +24,8 @@
 <header>
 	<nav>
 		<a href="https://192.168.7.7/home/index-local.html">Local</a>
-		<a href="https://home.foxburrow.org/home/index-remote-cf-proxy.html">Remote (CF)</a>
-		<a href="https://msi.foxburrow.org/home/index-remote-ng-proxy.html">(NG)</a>
+		<a href="https://home.foxburrow.org/home/index-remote-cf.html">Remote (CF)</a>
+		<a href="https://msi.foxburrow.org/home/index-remote-ng.html">(NG)</a>
 	</nav>
 
 	<span> Homepage - redirection </span>
@@ -41,10 +41,10 @@
 
 	if(!url.search.includes("no_redirect"))
 	{
-		const mode = (url.hostname.endsWith("foxburrow.org") ? "remote" : "local")
-		const proxy = (mode == "local" ? "" : (url.hostname == "msi.foxburrow.org" ? "remote-ng-proxy.html" : "remote-cf-proxy.html"))
+		const mode  = url.hostname.endsWith("foxburrow.org") ? "remote-" : "local"
+		const proxy = url.hostname == "msi.foxburrow.org" ? "ng" : "cf";
 
-		path[path.length - 1] = `index-${mode}${proxy}.html`;
+		path[path.length - 1] = `index-${mode}${mode != "local" ? proxy : ""}.html`;
 
 		url.protocol = "https:";
 		url.pathname = path.join("/");
