@@ -8,19 +8,54 @@
 	--bg-secondary: #3c3c3c;
 
 	--tint-white: #ffffff;
-	--tint-red: hsl(0deg,  100%,  55%);
+
 
 	/* --tint-yellow-dim: hsl(45deg,  40%,  40%); /1* oklch(60% 0.1 90) *1/ */
 	/* --tint-yellow:     hsl(45deg,  80%,  40%); /1* oklch(65% 0.1 90) *1/ */
 	/* --tint-yellow-br:  hsl(45deg,  80%,  60%); /1* oklch(80% 0.1 90) *1/ */
 
-	--tint-yellow-dim: hsl(45deg,  80%,  30%);
-	--tint-yellow:     hsl(45deg,  80%,  40%);
-	--tint-yellow-br:  hsl(45deg,  80%,  60%);
+	/* --tint-yellow-dim: hsl(45deg,  80%,  30%); */
+	/* --tint-yellow:     hsl(45deg,  80%,  40%); */
+	/* --tint-yellow-br:  hsl(45deg,  80%,  60%); */
 
-	--tint-yellow-dim-o: oklch(50% 0.15 90);
-	--tint-yellow-o:     oklch(70% 0.15 90);
-	--tint-yellow-br-o:  oklch(90% 0.15 90);
+	/* --tint-yellow-dim: oklch(50% 0.15 90); */
+	/* --tint-yellow:     oklch(70% 0.15 90); */
+	/* --tint-yellow-br:  oklch(90% 0.15 90); */
+
+	--tint-yellow-dim: oklch(45% 0.15 90);
+	--tint-yellow:     oklch(60% 0.15 90);
+	--tint-yellow-br:  oklch(75% 0.15 90);
+
+	/* --tint-red: hsl(0deg,  100%,  55%); */
+
+	--tint-red-dim: oklch(50% 0.16 25);
+	--tint-red:     oklch(60% 0.16 25);
+	--tint-red-br:  oklch(70% 0.16 25);
+
+	--tint-cyan-dim: oklch(50% 0.08 200);
+	--tint-cyan:     oklch(60% 0.08 200);
+	--tint-cyan-br:  oklch(70% 0.08 200);
+}
+
+body.accent-yellow
+{
+	--accent-tint-dim: var(--tint-yellow-dim);
+	--accent-tint:     var(--tint-yellow);
+	--accent-tint-br:  var(--tint-yellow-br);
+}
+
+body.accent-cyan
+{
+	--accent-tint-dim: var(--tint-cyan-dim);
+	--accent-tint:     var(--tint-cyan);
+	--accent-tint-br:  var(--tint-cyan-br);
+}
+
+body.accent-red
+{
+	--accent-tint-dim: var(--tint-red-dim);
+	--accent-tint:     var(--tint-red);
+	--accent-tint-br:  var(--tint-red-br);
 }
 
 html {
@@ -79,8 +114,10 @@ li > img {
 	width: 1rem;
 }
 
-*[title] { text-decoration: 0.1em underline dashed var(--tint-yellow); }
-*[title]:hover { text-decoration-color: var(--tint-yellow-br); }
+*[title] { text-decoration: 0.1em underline dashed var(--accent-tint); }
+*[title]:hover { text-decoration-color: var(--accent-tint-br); }
+
+span.highlight { color: var(--accent-tint); }
 
 *:has(> code) { line-height: 1.5em; }
 code {
@@ -100,8 +137,8 @@ pre {
 sup { vertical-align: top; font-size: 0.6em; }
 em { color: var(--tint-red); }
 
-a, a:link { color: var(--tint-yellow);     } /* Unvisited link  */
-a:visited { color: var(--tint-yellow-dim); } /* Link in history */
-a:hover   { color: var(--tint-yellow-br);  } /* Mouse hovering  */
+a, a:link { color: var(--accent-tint);     } /* Unvisited link  */
+a:visited { color: var(--accent-tint-dim); } /* Link in history */
+a:hover   { color: var(--accent-tint-br);  } /* Mouse hovering  */
 a:active  { color: var(--tint-white);      } /* Mouse clicking  */
 
